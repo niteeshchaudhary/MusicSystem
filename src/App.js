@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BoxGridHolder from "./components/BoxGridHolder";
+import HorizontalList from "./components/HorzontalList";
+import Player from "./components/Player";
+import SlideHolder from "./components/SlideHolder";
+import TopNav from "./components/TopNav";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopNav />
+      <BoxGridHolder />
+      <Player />
     </div>
   );
 }
