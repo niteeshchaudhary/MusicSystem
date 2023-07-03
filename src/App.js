@@ -4,6 +4,7 @@ import HorizontalList from "./components/HorzontalList";
 import Player from "./components/Player";
 import SlideHolder from "./components/SlideHolder";
 import TopNav from "./components/TopNav";
+import VideoPlayerr from "./components/VideoPlayerr.js";
 
 function App() {
   return (

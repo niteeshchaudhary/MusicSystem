@@ -11,7 +11,7 @@ export default function TopNav() {
       </div>
       <div className={styles.textholder}>
         <h2>NK Music Player</h2>
-        <p>Listen to ur pleasant musics here</p>
+        <p>Listen to your pleasant musics here</p>
       </div>
       <div className={styles.options}>
         <div className={styles.opimg}></div>
