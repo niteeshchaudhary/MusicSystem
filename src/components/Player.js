@@ -1,29 +1,54 @@
 import "../modulecss/player.css";
-import { useEffect, useState } from "react";
-import tracks from "../jsonfiles/tracks.json";
-export default function Player() {
-  const [ind, setInd] = useState(1);
-  const [currentT, setcurrentT] = useState({ name: "" });
+import React, { useState, useEffect, useRef } from "react";
+
+export default function Player({ tracks, setTracks }) {
+  const [ind, setInd] = useState(null);
+
   const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const progressRef = useRef(null);
+  const progresst = useRef(null);
+
   const play = () => {
-    if (tracks.audio.paused) {
-      tracks.audio.play();
+    if (tracks?.currentTrack?.source !== tracks?.audio?.src) {
+      tracks.audio.src = tracks?.currentTrack.source;
+      tracks?.audio?.load();
+    }
+
+    if (tracks?.audio?.paused) {
+      tracks?.audio?.play();
       setPlaying(true);
       tracks.isTimerPlaying = true;
     } else {
-      tracks.audio.pause();
+      tracks?.audio?.pause();
       setPlaying(false);
       tracks.isTimerPlaying = false;
     }
   };
+
+  const toggleFavorite = () => {
+    console.log(tracks);
+    setTracks((prevTracks) => {
+      var ctrack = null;
+      const updatedTracks = prevTracks?.tracks?.map((track, index) => {
+        if (index === prevTracks?.currentTrackIndex) {
+          ctrack = { ...track, favorite: !track.favorite };
+          return { ...track, favorite: !track.favorite };
+        }
+        return track;
+      });
+      return { ...prevTracks, tracks: updatedTracks, currentTrack: ctrack };
+    });
+  };
+
   const generateTime = () => {
-    let width = (100 / tracks.audio.duration) * tracks.audio.currentTime;
+    let width = (100 / tracks?.audio?.duration) * tracks?.audio?.currentTime;
     tracks.barWidth = width + "%";
     tracks.circleLeft = width + "%";
-    let durmin = Math.floor(tracks.audio.duration / 60);
-    let dursec = Math.floor(tracks.audio.duration - durmin * 60);
-    let curmin = Math.floor(tracks.audio.currentTime / 60);
-    let cursec = Math.floor(tracks.audio.currentTime - curmin * 60);
+    let durmin = Math.floor(tracks?.audio?.duration / 60);
+    let dursec = Math.floor(tracks?.audio?.duration - durmin * 60);
+    let curmin = Math.floor(tracks?.audio?.currentTime / 60);
+    let cursec = Math.floor(tracks?.audio?.currentTime - curmin * 60);
     if (durmin < 10) {
       durmin = "0" + durmin;
     }
@@ -39,89 +64,114 @@ export default function Player() {
     tracks.duration = durmin + ":" + dursec;
     tracks.currentTime = curmin + ":" + cursec;
   };
-  const updateBar = (x) => {
-    let progress = this.$refs.progress;
-    let maxduration = this.audio.duration;
-    let position = x - progress.offsetLeft;
-    let percentage = (100 * position) / progress.offsetWidth;
-    if (percentage > 100) {
-      percentage = 100;
-    }
-    if (percentage < 0) {
-      percentage = 0;
-    }
-    this.barWidth = percentage + "%";
-    this.circleLeft = percentage + "%";
-    this.audio.currentTime = (maxduration * percentage) / 100;
-    this.audio.play();
+
+  const updateProgress = () => {
+    const audio = audioRef.current;
+    const progress = progressRef.current;
+    const { currentTime, duration } = audio;
+    const progressWidth = (currentTime / duration) * 100;
+    progress.style.width = `${progressWidth}%`;
   };
-  const clickProgress = (e) => {
-    tracks.isTimerPlaying = true;
-    tracks.audio.pause();
-    updateBar(e.pageX);
+
+  const clickProgress = (event) => {
+    const progress = progressRef.current;
+    const audio = audioRef.current;
+    const { clientX } = event;
+    const ct = event.currentTarget.getBoundingClientRect().width;
+    const x_ = event.currentTarget.getBoundingClientRect().x;
+    const width = Number(progress.style.width.slice(0, -1));
+
+    const percent = ((clientX - x_) / ct) * 100;
+
+    // const percent = (clickX / width) * 100;
+    const currentTime = Math.floor((percent * audio.duration) / 100);
+    console.log(
+      width,
+      percent,
+      currentTime,
+      event.currentTarget.getBoundingClientRect()
+    );
+    audio.currentTime = currentTime;
   };
+
   const prevTrack = () => {
     tracks.transitionName = "scale-in";
     tracks.isShowCover = false;
-    if (tracks.currentTrackIndex > 0) {
-      tracks.currentTrackIndex--;
+    if (tracks?.currentTrackIndex > 0) {
+      setTracks({
+        ...tracks,
+        currentTrackIndex: tracks?.currentTrackIndex - 1,
+        currentTrack: tracks?.tracks[tracks?.currentTrackIndex - 1],
+      });
     } else {
-      tracks.currentTrackIndex = tracks.tracks.length - 1;
+      setTracks({
+        ...tracks,
+        currentTrackIndex: tracks?.tracks?.length - 1,
+        currentTrack: tracks?.tracks[tracks?.tracks?.length - 1],
+      });
     }
-    tracks.currentTrack = tracks.tracks[tracks.currentTrackIndex];
     resetPlayer();
   };
+
   const nextTrack = () => {
     tracks.transitionName = "scale-out";
     tracks.isShowCover = false;
-    if (tracks.currentTrackIndex < tracks.tracks.length - 1) {
-      tracks.currentTrackIndex++;
+    if (tracks?.currentTrackIndex < tracks?.tracks?.length - 1) {
+      setTracks({
+        ...tracks,
+        currentTrackIndex: tracks?.currentTrackIndex + 1,
+        currentTrack: tracks?.tracks[tracks?.currentTrackIndex + 1],
+      });
     } else {
-      tracks.currentTrackIndex = 0;
+      setTracks({
+        ...tracks,
+        currentTrackIndex: 0,
+        currentTrack: tracks?.tracks[0],
+      });
     }
-    tracks.currentTrack = tracks.tracks[tracks.currentTrackIndex];
     resetPlayer();
   };
+
   const resetPlayer = () => {
+    tracks.audio.currentTime = 0;
+    setPlaying(false);
     tracks.barWidth = 0;
     tracks.circleLeft = 0;
-    tracks.audio.currentTime = 0;
-    tracks.audio.src = tracks.currentTrack.source;
-    setTimeout(() => {
-      if (tracks.isTimerPlaying) {
-        tracks.audio.play();
-      } else {
-        tracks.audio.pause();
-      }
-    }, 300);
-  };
-  const favorite = () => {
-    tracks.tracks[tracks.currentTrackIndex].favorited =
-      !tracks.tracks[tracks.currentTrackIndex].favorited;
+    tracks.isTimerPlaying = false;
+    tracks.isShowCover = true;
   };
 
   useEffect(() => {
-    var currentTrack = tracks.tracks[0];
-    var audio = new Audio();
-    tracks.audio = audio;
-    tracks.audio.src = currentTrack.source;
+    const audio = document.getElementById("audio");
+    setTracks({
+      ...tracks,
+      audio: audio,
+      currentTrackIndex: ind - 1,
+      currentTrack: tracks?.tracks[ind - 1],
+    });
 
-    audio.ontimeupdate = function () {
-      generateTime();
-    };
-    audio.onloadedmetadata = function () {
-      generateTime();
-    };
-    audio.onended = function () {
-      nextTrack();
-      tracks.isTimerPlaying = true;
-    };
+    audio.addEventListener("loadedmetadata", generateTime);
+    audio.addEventListener("timeupdate", updateProgress);
 
-    // this is optional (for preload covers)
-  }, []);
+    return () => {
+      audio.removeEventListener("loadedmetadata", generateTime);
+      audio.removeEventListener("timeupdate", generateTime);
+    };
+  }, [tracks?.currentTrack?.currentTrackIndex]);
+
+  useEffect(() => {
+    if (
+      tracks?.audio &&
+      tracks?.currentTrack &&
+      tracks?.currentTrack.source !== tracks?.audio.src
+    ) {
+      play();
+    }
+  }, [tracks?.currentTrack]);
 
   return (
     <>
+      {/* <!-- ***************************************************************************--> */}
       <div className="player">
         <div className="player__top">
           <div className="player-cover">
@@ -138,9 +188,11 @@ export default function Player() {
               ) : (
                 <div
                   className="player-cover__item"
-                  style="backgroundImage: 'url(tracks?.cover)'"
-                  vfor={`(tracks, ind) in tracks`}
-                  key="ind"
+                  style={{
+                    backgroundImage: `url(${tracks?.currentTrack?.cover})`,
+                  }}
+                  vfor={`(${tracks}, ${ind}) in tracks`}
+                  key={ind}
                 ></div>
               )}
             </transition-group>
@@ -159,8 +211,8 @@ export default function Player() {
             </div>
           ) : (
             <div className="album-info">
-              <div className="album-info__name"> currentTrack_artist </div>
-              <div className="album-info__track"> currentTrack_name </div>
+              <div className="album-info__name"> </div>
+              <div className="album-info__track"> </div>
             </div>
           )}
         </div>
@@ -179,7 +231,7 @@ export default function Player() {
                 </svg>
               </div>
 
-              <div className="player-controls__item -xl js-play" onClick={play}>
+              <div className="player-controls__item" onClick={play}>
                 <svg className="icon" style={{ height: "3rem", width: "3rem" }}>
                   {playing || tracks?.isTimerPlaying ? (
                     <use xlinkHref="#icon-pause"></use>
@@ -196,13 +248,13 @@ export default function Player() {
               <div
                 className={
                   "player-controls__item -favorite :className={ active :" +
-                  tracks?.currentTrack?.favorited +
+                  tracks?.currentTrack?.favorite +
                   "}"
                 }
-                onClick={favorite}
+                onClick={toggleFavorite}
               >
                 <svg className="icon">
-                  {tracks?.currentTrack?.favorited ? (
+                  {tracks?.currentTrack?.favorite ? (
                     <use xlinkHref="#icon-heart-o"></use>
                   ) : (
                     <use xlinkHref="#icon-heart"></use>
@@ -210,11 +262,23 @@ export default function Player() {
                 </svg>
               </div>
             </div>
+
             {/* </div> */}
             <div className="progress__duration"> </div>
           </div>
-          <div className="progress__bar" onClick={clickProgress}>
-            <div className="progress__current" style={{ width: 15 }}></div>
+          <div
+            className="progress__bar"
+            ref={progresst}
+            onClick={clickProgress}
+          >
+            <div
+              className="progress__current"
+              ref={progressRef}
+              style={{ width: 0 }}
+            ></div>
+            <audio id="audio" ref={audioRef}>
+              <source src={tracks?.currentTrack?.source} />
+            </audio>
           </div>
           <div className="progress__time"></div>
         </div>
@@ -224,6 +288,8 @@ export default function Player() {
           xmlns="http://www.w3.org/2000/svg"
           hidden
           xmlnsXlink="http://www.w3.org/1999/link"
+          height="0"
+          width="0"
         >
           <defs>
             <symbol id="icon-heart-o" viewBox="0 0 32 32">
@@ -276,19 +342,19 @@ export default function Player() {
               <title>shuffle</title>
               <path
                 stroke="black"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M23.812 18.906l3.494 3.496h-6.296l-13.012-13.861h-5.345v1.066h4.884l13.012 13.861h6.758l-3.485 3.486 0.754 0.754 4.772-4.774-4.781-4.782z"
                 fill="#000000"
               ></path>
               <path
                 stroke="red"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M7.537 22.402h-4.884v1.066h5.345l5.163-5.5-0.778-0.73z"
                 fill="#000000"
               ></path>
               <path
                 stroke="red"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M21.011 9.607h6.295l-3.485 3.486 0.754 0.754 4.772-4.774-4.781-4.782-0.754 0.754 3.494 3.496h-6.758l-5.185 5.545 0.779 0.728z"
                 fill="#000000"
               ></path>

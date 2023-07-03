@@ -16,7 +16,7 @@
     min-height: 100vh;
     background-size: cover;
   }
-  @media screen and (max-width: 700px), (max-height: 500px) {
+  @media screen and (max-width: 700px) {
     .wrapper {
       flex-wrap: wrap;
       flex-direction: column;
@@ -32,14 +32,13 @@
     padding: 30px;
   }
 
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player {
-      width: 95%;
+      width: calc(100% - 2.8rem);
       padding: 20px;
       margin-top: 75px;
       min-height: initial;
       padding-bottom: 30px;
-      max-width: 400px;
     }
   }
   .player__top {
@@ -48,28 +47,30 @@
     position: relative;
     z-index: 4;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player__top {
+      width:100%;
       flex-wrap: wrap;
     }
   }
   .player-cover {
-    width: 300px;
-    height: 300px;
+    width: 30rem;
+    height: 22rem;
+    margin-right: 1rem;
     flex-shrink: 0;
     position: relative;
     z-index: 2;
     border-radius: 15px;
     z-index: 1;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player-cover {
       margin-top: -70px;
       margin-bottom: 25px;
-      width: 300px;
+      width: 90%;
       height: 230px;
       margin-left: 5%;
-      margin-right: 15%;
+      margin-right: 5%;
     }
   }
   .player-cover__item {
@@ -126,7 +127,7 @@
     width: 96.5%;
     align-items: center;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player-controls {
       padding-left: 0;
     }
@@ -138,22 +139,22 @@
     margin-bottom: 10px;
     color: #acb8cc;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 4rem;
+    height: 4rem;
     align-items: center;
     justify-content: center;
     position: relative;
     transition: all 0.3s ease-in-out;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player-controls__item {
       font-size: 26px;
       padding: 5px;
       margin-right: 10px;
       color: #acb8cc;
       cursor: pointer;
-      width: 40px;
-      height: 40px;
+      width: 4rem;
+      height: 4rem;
       margin-bottom: 0;
     }
   }
@@ -172,16 +173,16 @@
   }
   @media screen and (min-width: 500px) {
     .player-controls__item:hover {
-      color: #532ab9;
+      color: #170a38;
     }
     .player-controls__item:hover::before {
       opacity: 1;
-      transform: scale(1.3);
+      transform: scale(1);
     }
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player-controls__item:active {
-      color: #532ab9;
+      color: #0f0230;
     }
     .player-controls__item:active::before {
       opacity: 1;
@@ -201,7 +202,7 @@
     height: auto;
     display: inline-flex;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .player-controls__item.-xl {
     
       font-size: 75px;
@@ -268,7 +269,7 @@
     padding-right: 60px;
     user-select: none;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .album-info {
       display:flex;
       padding-right: 30px;
@@ -280,7 +281,7 @@
     margin-bottom: 12px;
     line-height: 1.3em;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .album-info__name {
       font-size: 18px;
       margin-bottom: 9px;
@@ -293,7 +294,7 @@
     line-height: 1.3em;
     min-height: 52px;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .album-info__track {
       font-size: 18px;
       min-height: 50px;
@@ -377,7 +378,7 @@
   .gap {
     height: 2rem;
   }
-  @media screen and (max-width: 576px), (max-height: 500px) {
+  @media screen and (max-width: 651px) {
     .gap {
       height:0rem;
     }

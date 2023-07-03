@@ -10,27 +10,20 @@
       "name": "Mekanın Sahibi",
       "artist": "Norm Ender",
       "cover": "https://images.pexels.com/photos/3635300/pexels-photo-3635300.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "source": "https://github.com/niteeshchaudhary/MusicSystem/raw/main/src/songs/1.mp3",
+      "source": "https://github.com/niteeshchaudhary/MusicSystem/raw/main/src/songs/2.mp3",
       "url": "https://www.youtube.com/watch?v=z3wAjJXbYzA",
-      "favorited": false
+      "favorite": false
     },
     {
       "name": "Shape of You",
       "artist": "Ed Sheeran",
       "cover": "https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "source": "https://github.com/niteeshchaudhary/MusicSystem/raw/main/src/songs/2.mp3",
+      "source": "https://github.com/niteeshchaudhary/MusicSystem/raw/main/src/songs/1.mp3",
       "url": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-      "favorited": true
+      "favorite": true
     }
   ],
-  "currentTrack": {
-    "name": "Shape of You",
-    "artist": "Ed Sheeran",
-    "cover": "https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "source": "https://github.com/niteeshchaudhary/MusicSystem/raw/main/src/songs/1.mp3",
-    "url": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-    "favorited": true
-  },
-  "currentTrackIndex": 1,
+  "currentTrack": null,
+  "currentTrackIndex": null,
   "transitionName": null
 }

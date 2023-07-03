@@ -1,8 +1,8 @@
 import styles from "../modulecss/box.module.css";
 import Boxview from "./Boxview";
 import { useEffect } from "react";
-import txs from "../jsonfiles/tracks.json";
-export default function SlideHolder() {
+
+export default function SlideHolder({ tracks, setTracks }) {
   useEffect(() => {
     var dt = document.getElementsByClassName(styles.slideholder2);
     console.log(styles.slideholder2);
@@ -64,21 +64,22 @@ export default function SlideHolder() {
       <div className={styles.leftarrow} onClick={scrollleft}>
         &#10094;
       </div>
-      {txs.tracks.map((value, index) => (
-        <Boxview img={value.cover} title={value.name} key={index} />
+      {tracks?.tracks.map((value, index) => (
+        <Boxview
+          img={value.cover}
+          title={value.name}
+          index={index}
+          key={index}
+          tracks={tracks}
+          setTracks={setTracks}
+        />
       ))}
-      <Boxview />0
-      <Boxview /> 1<Boxview /> 2<Boxview />3 <Boxview />4 <Boxview />5{" "}
-      <Boxview />
-      5.5
-      <Boxview /> 6<Boxview />7 <Boxview /> 8<Boxview /> 9<Boxview />
-      10 <Boxview />
-      90
-      <Boxview />
-      90
-      <Boxview /> 91
-      <Boxview /> 92
-      <Boxview />
+      {Array(20)
+        .fill(0)
+        .map((ele, index) => (
+          <Boxview key={index} />
+        ))}
+
       {/*  
       93 <Boxview />
       94 <Boxview />
