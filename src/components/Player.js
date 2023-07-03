@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import tracks from "../jsonfiles/tracks.json";
 export default function Player() {
   const [ind, setInd] = useState(1);
+  const [currentT, setcurrentT] = useState({ name: "" });
   const [playing, setPlaying] = useState(false);
   const play = () => {
     if (tracks.audio.paused) {
