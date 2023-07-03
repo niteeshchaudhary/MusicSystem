@@ -1,0 +1,168 @@
+.slideholder{
+    margin:1rem;
+    display:flex;
+    width: calc(100% -1rem);
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+
+.slideholder2{
+    margin:1rem 0rem 1rem 0rem;
+    padding:0rem 0.4rem;
+    display:flex;
+   
+    height: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    -webkit-animation-name: cssAnimation;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.gridholder{
+    margin:0.5rem;
+    padding:0rem 1rem;
+    display:flex;
+    flex-wrap: wrap;
+    width: calc(100% -1rem);
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+}
+
+.container{
+    margin:0.5rem 1rem 0.5rem 0rem;
+    display:flex;
+    flex-direction: column;
+    width: 7rem;
+    height: 7.4rem;
+    padding:0.1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.imageholder{
+    height: 73%;
+    width:7rem;
+}
+.textholder{
+    height: 100%;
+    padding:0.1rem 0.1rem;
+}
+.textholder h3{
+    margin: 0;
+    text-align: center;
+}
+.textholder p{
+    margin: 0;
+    text-align: left;
+}
+.container:hover{
+    display:flex;
+    flex-direction: column;
+    width: 7rem;
+    height: 7.4rem;
+    padding:0.1rem;
+    background-image: linear-gradient(to bottom left, rgba(84, 164, 239, 0.4), rgba(255,255,255,1));
+    box-shadow: 8px 8px 8px 3px rgb(0 0 0 / 20%), 10px 1px 10px 5px rgb(0 0 0 / 20%);
+    text-shadow: 1px 1px 1px #00f;
+}
+
+.slideholder::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .slideholder {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .slideholder2::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .slideholder2 {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+
+
+.leftarrow{
+    display:flex;
+    position: absolute;
+    margin:0rem 0rem 0 0rem;
+    width:1.5rem;
+    height:7.5rem;
+    align-self: center;
+    align-items: center;
+    left:0;
+    font-size: 2rem;
+    justify-content: center;
+    background: linear-gradient(to left,rgba(225,225,225,0.10),rgba(0,0,0,0.20));
+    color:rgba(0,0,0,0.20);
+    cursor: pointer;
+    border-radius: 0rem 1rem 1rem 0rem;
+    z-index: 2;
+}
+.leftarrow:hover{
+    display:flex;
+    position: absolute;
+    margin:0rem 0rem 0 0rem;
+    width:1.5rem;
+    height:7.5rem;
+    align-self: center;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    background: linear-gradient(to right,rgba(225,225,225,0.40),rgba(0,0,0,0.20));
+    color:rgba(0,0,0,0.90);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.rightarrow{
+    display:flex;
+    position: absolute;
+    margin:0rem 0rem 0 0rem;
+    width:1.5rem;
+    height:7.5rem;
+    right:0;
+    align-self: center;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    background: linear-gradient(to left,rgba(225,225,225,0.10),rgba(0,0,0,0.20));
+    color:rgba(0,0,0,0.20);
+    cursor: pointer;
+    border-radius: 1rem 0rem 0rem 1rem;
+    z-index: 2;
+}
+.rightarrow:hover{
+    display:flex;
+    position: absolute;
+    margin:0rem 0rem 0 0rem;
+    width:1.5rem;
+    height:7.5rem;
+    align-self: center;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    background: linear-gradient(to right,rgba(225,225,225,0.40),rgba(0,0,0,0.20));
+    color:rgba(0,0,0,0.90);
+    cursor: pointer;
+    z-index: 2;
+}
+
+

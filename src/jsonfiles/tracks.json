@@ -1,0 +1,131 @@
+{
+  "audio": null,
+  "circleLeft": null,
+  "barWidth": null,
+  "duration": null,
+  "currentTime": null,
+  "isTimerPlaying": false,
+  "tracks": [
+    {
+      "name": "Mekanın Sahibi",
+      "artist": "Norm Ender",
+      "cover": "https://images.pexels.com/photos/3635300/pexels-photo-3635300.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
+      "url": "https://www.youtube.com/watch?v=z3wAjJXbYzA",
+      "favorited": false
+    },
+    {
+      "name": "Shape of You",
+      "artist": "Ed Sheeran",
+      "cover": "https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
+      "url": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+      "favorited": true
+    },
+    {
+      "name": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "cover": "https://images.pexels.com/photos/132468/pexels-photo-132468.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3",
+      "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+      "favorited": true
+    },
+    {
+      "name": "Blinding Lights",
+      "artist": "The Weeknd",
+      "cover": "https://images.pexels.com/photos/65031/pexels-photo-65031.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3",
+      "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+      "favorited": false
+    },
+    {
+      "name": "Someone Like You",
+      "artist": "Adele",
+      "cover": "https://images.pexels.com/photos/4466492/pexels-photo-4466492.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3",
+      "url": "https://www.youtube.com/watch?v=hLQl3WQQoQ0",
+      "favorited": true
+    },
+    {
+      "name": "Everybody Knows",
+      "artist": "Leonard Cohen",
+      "cover": "https://images.pexels.com/photos/2229748/pexels-photo-2229748.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
+      "url": "https://www.youtube.com/watch?v=Lin-a2lTelg",
+      "favorited": false
+    },
+
+    {
+      "name": "Extreme Ways",
+      "artist": "Moby",
+      "cover": "https://images.pexels.com/photos/2695703/pexels-photo-2695703.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3",
+      "url": "https://www.youtube.com/watch?v=ICjyAe9S54c",
+      "favorited": false
+    },
+
+    {
+      "name": "Butterflies",
+      "artist": "Sia",
+      "cover": "https://images.pexels.com/photos/364086/pexels-photo-364086.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3",
+      "url": "https://www.youtube.com/watch?v=kYgGwWYOd9Y",
+      "favorited": false
+    },
+
+    {
+      "name": "The Final Victory",
+      "artist": "Haggard",
+      "cover": "https://images.pexels.com/photos/1212045/pexels-photo-1212045.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3",
+      "url": "https://www.youtube.com/watch?v=0WlpALnQdN8",
+      "favorited": false
+    },
+
+    {
+      "name": "Genius ft. Sia, Diplo, Labrinth",
+      "artist": "LSD",
+      "cover": "https://images.pexels.com/photos/696996/pexels-photo-696996.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3",
+      "url": "https://www.youtube.com/watch?v=HhoATZ1Imtw",
+      "favorited": false
+    },
+
+    {
+      "name": "The Comeback Kid",
+      "artist": "Lindi Ortega",
+      "cover": "https://images.pexels.com/photos/6925155/pexels-photo-6925155.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3",
+      "url": "https://www.youtube.com/watch?v=me6aoX0wCV8",
+      "favorited": false
+    },
+
+    {
+      "name": "Overdose",
+      "artist": "Grandson",
+      "cover": "https://images.pexels.com/photos/13653019/pexels-photo-13653019.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3",
+      "url": "https://www.youtube.com/watch?v=00-Rl3Jlx-o",
+      "favorited": false
+    },
+
+    {
+      "name": "Rag'n'Bone Man",
+      "artist": "Human",
+      "cover": "https://images.pexels.com/photos/46231/water-lilies-pink-water-lake-46231.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3",
+      "url": "https://www.youtube.com/watch?v=L3wKzyIN1yk",
+      "favorited": false
+    }
+  ],
+  "currentTrack": {
+    "name": "Shape of You",
+    "artist": "Ed Sheeran",
+    "cover": "https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "source": "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
+    "url": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+    "favorited": true
+  },
+  "currentTrackIndex": 1,
+  "transitionName": null
+}
